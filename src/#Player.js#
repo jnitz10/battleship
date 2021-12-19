@@ -1,0 +1,11 @@
+import {makeBoard} from "./Board";
+
+
+const makePlayer = () => {
+
+    let playerBoard = makeBoard(); 
+
+    func receiveAttack(coord) {
+	playerBoard.receiveAttack(coord);
+    };
+};

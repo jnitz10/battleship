@@ -6,7 +6,7 @@ const makeShip = (shipType) => {
     'cruiser' : 3,
     'submarine' : 3,
     'destroyer' : 2,
-  }
+  };
   var hits = Array.from({length: shipLengths[shipType]}, (_, i) => 1);
 
   var sunk = false;
@@ -16,11 +16,11 @@ const makeShip = (shipType) => {
     if (getHits().reduce(_add, 0) == 0) {
       sunk = true;
     }
-  }
+  };
 
   const getHits = () => {
     return hits;
-  }
+  };
 
   function _add (accumulator, n) {
     return accumulator + n;
@@ -32,9 +32,9 @@ const makeShip = (shipType) => {
     } else {
       return false;
     }
-  }
+  };
 
-  return { getHits, hit, isSunk }
-}
+    return { getHits, hit, isSunk };
+};
 
 exports.makeShip = makeShip;

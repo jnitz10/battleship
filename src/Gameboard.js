@@ -14,9 +14,9 @@ const makeBoard = () => {
 
   function overlapTest(array1, array2) {
     if (array1.filter(value => array2.includes(value)).length > 0) {
-      return true
+	return true;
     } else {
-      return false
+	return false;
     }
   }
 
@@ -24,24 +24,25 @@ const makeBoard = () => {
     if (overlapTest(coordList, usedCoords)) {
       return false;
     } else {
-      ships[`${shipType}`] = makeShip(shipType);
-      shipLocations[`${shipType}`] = coordList;
-      usedCoords.push(...coordList);
+        ships[`${shipType}`] = makeShip(shipType);
+        shipLocations[`${shipType}`] = coordList;
+        usedCoords.push(...coordList);
+	return true;
 
     }
-  }
+  };
   
   const receiveAttack = (attackCoord) => {
     if (usedCoords.includes(attackCoord)) {
       for (const key in shipLocations) {
         if (shipLocations[key].includes(attackCoord)) {
-          ships[key].hit(shipLocations[key].indexOf(attackCoord))
+            ships[key].hit(shipLocations[key].indexOf(attackCoord));
         }
       }
     } else {
       misses.push(attackCoord);
     }
-  }
+  };
 
   const allSunk = () => {
     for (const key in ships) {
@@ -50,8 +51,8 @@ const makeBoard = () => {
       }
     }
     return true;
-  }
-  return { ships, shipLocations, placeShip, receiveAttack, getMisses, allSunk, usedCoords }
-}
+  };
+    return { ships, shipLocations, placeShip, receiveAttack, getMisses, allSunk, usedCoords };
+};
 
 exports.makeBoard = makeBoard;
